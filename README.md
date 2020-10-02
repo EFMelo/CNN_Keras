@@ -14,6 +14,10 @@ Outputs:
 - `0`: Bart.
 - `1`: Homer.
 
+**keras.datasets**
+
+Tests were also performed with the `mnist` data set.
+
 ### Some Results
 
 **Bart and Homer**
@@ -25,7 +29,7 @@ from datasets import BartAndHomer
 from models import BartAndHomerModel
 from plots import Results
 
-# load dataset
+# loading dataset
 x_train, x_val, x_test = BartAndHomer.load_data(target_size=(64, 64), batch_size=16)
 
 # building and training CNN
@@ -41,7 +45,39 @@ Results.accuracy(epochs, history)
 ```
 
 <p align="center">
-  <img width="384" height="244" src="https://i.imgur.com/lAkxz0X.png">
+  <img width="384" height="244" src="https://i.imgur.com/39peKBS.png">
+</p>
+
+
+**Mnist**
+
+Using the dataset and training the CNN:
+
+```python
+from datasets import Mnist
+from models import MnistModel
+
+# loading dataset
+x_train, y_train, x_val, y_val, x_test, y_test = Mnist.load_data()
+
+# building and training CNN
+model = MnistModel.build()
+history = model.fit(x_train, y_train, batch_size=64, epochs=epochs, validation_data=(x_val, y_val))
+
+# CNN prevision
+prediction = model.predict(x_test)
+```
+
+Accuracy:
+
+<p align="center">
+  <img width="299" height="197" src="https://i.imgur.com/ox7YKwx.png">
+</p>
+
+Classification for 8 images of the test data:
+
+<p align="center">
+  <img width="378" height="195" src="https://i.imgur.com/AE8rfkF.png">
 </p>
 
 
