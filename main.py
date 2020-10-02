@@ -1,8 +1,8 @@
 from datasets import BartAndHomer
-from model import BartAndHomerModel
+from models import BartAndHomerModel
 from plots import Results
 
-epochs = 30
+epochs = 15
 target_size = (64, 64)
 
 # load dataset
