@@ -1,4 +1,6 @@
 from keras.preprocessing import image
+from keras.datasets import mnist
+from keras.utils.np_utils import to_categorical
 from os import scandir
 from numpy import array
 
@@ -61,3 +63,26 @@ class BartAndHomer:
         x = array(x)
         
         return x
+
+
+class Mnist:
+    
+    @classmethod
+    def load_data(cls):
+        
+        # load dataset
+        (x_train, y_train), (x, y) = mnist.load_data()
+        
+        # input
+        x_train = (x_train.astype('float16') / 255).reshape(x_train.shape[0], 28, 28, 1)  # between 0 and 1
+        x = (x.astype('float16') / 255).reshape(x.shape[0], 28, 28, 1)  # between 0 and 1
+        x_val = x[0:9000]
+        x_test = x[9000:10000]
+        
+        # output
+        y_train = to_categorical(y_train)  # one-hot
+        y = to_categorical(y)  # one-hot
+        y_val = y[0:9000]
+        y_test = y[9000:10000]
+        
+        return x_train, y_train, x_val, y_val, x_test, y_test

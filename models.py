@@ -32,3 +32,31 @@ class BartAndHomerModel:
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
         return model
+
+
+class MnistModel:
+    
+    @classmethod
+    def build(cls):
+        
+        model = Sequential()
+
+        # conv - 32
+        model.add(Conv2D(32, (3,3), input_shape=(28, 28, 1), activation='relu', padding='same'))
+        model.add(Conv2D(32, (3,3), activation='relu', padding='same'))
+        model.add(MaxPooling2D((2,2)))
+        
+        # Flatening
+        model.add(Flatten())
+
+        # Dense layers
+        model.add(Dense(30, activation='relu'))
+        model.add(Dropout(0.2))
+        model.add(Dense(30, activation='relu'))
+        model.add(Dropout(0.2))
+        model.add(Dense(10, activation='softmax'))
+
+        # Configuring the network
+        model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+
+        return model
