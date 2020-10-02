@@ -54,11 +54,11 @@ Results.accuracy(epochs, history)
 Using the dataset and training the CNN:
 
 ```python
-from datasets import Mnist
+from datasets import KerasDataSet
 from models import MnistModel
 
 # loading dataset
-x_train, y_train, x_val, y_val, x_test, y_test = Mnist.load_data()
+x_train, y_train, x_val, y_val, x_test, y_test = KerasDataSet.load_data_mnist()
 
 # building and training CNN
 model = MnistModel.build()
