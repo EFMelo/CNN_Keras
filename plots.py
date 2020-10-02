@@ -19,6 +19,6 @@ class Results:
         plt.plot(range(epochs), history.history['accuracy'], label="Training")
         plt.plot(range(epochs), history.history['val_accuracy'], label="Validation")
         plt.xlabel('Epochs')
-        plt.ylabel('Loss')
+        plt.ylabel('Accuracy')
         plt.legend()
         plt.show()
