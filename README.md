@@ -81,6 +81,38 @@ Classification for 8 images of the test data:
 </p>
 
 
+**Cifar 10**
+
+Using the dataset and training the CNN:
+
+```python
+from datasets import KerasDataSet
+from models import Cifar10Model
+
+# loading dataset
+x_train, y_train, x_val, y_val, x_test, y_test = KerasDataSet.load_data_cifar10()
+
+# building and training CNN
+model = Cifar10Model.build()
+history = model.fit(x_train, y_train, batch_size=64, epochs=15, validation_data=(x_val, y_val))
+
+# CNN prevision
+prediction = model.predict(x_test)
+```
+
+Accuracy:
+
+<p align="center">
+  <img width="299" height="197" src="https://i.imgur.com/UMXZNrO.png">
+</p>
+
+Classification for 8 images of the test data:
+
+<p align="center">
+  <img width="378" height="195" src="https://i.imgur.com/yjpNAVB.png">
+</p>
+
+
 ### Contact
 
 emeloppgi@gmail.com
