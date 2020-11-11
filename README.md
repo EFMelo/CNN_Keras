@@ -115,6 +115,8 @@ Classification for 8 images of the test data:
 
 ### Contact
 
+[linkedin.com/in/edvaldo-melo/](https://www.linkedin.com/in/edvaldo-melo/)
+
 emeloppgi@gmail.com
 
 [github.com/EFMelo](https://github.com/EFMelo)
